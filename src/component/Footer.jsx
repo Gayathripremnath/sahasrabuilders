@@ -94,7 +94,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p className="copyright">
-            &copy; {new Date().getFullYear()} Sahasra Builders. All rights reserved.
+            &copy; {new Date().getFullYear()} Genova Technologies. All rights reserved.
           </p>
           <div className="footer-policies">
             <a href="#privacy">Privacy Policy</a>
