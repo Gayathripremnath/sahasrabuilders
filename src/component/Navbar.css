@@ -1,0 +1,196 @@
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  background: transparent;
+}
+
+.navbar-container {
+  width: 100%;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1010;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: var(--transition);
+}
+
+.navbar-logo:hover .navbar-logo-img {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.navbar-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  padding: 10px;
+  border-radius: 50%;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.navbar-menu-btn:hover,
+.navbar-menu-btn.active {
+  background-color: rgba(15, 61, 108, 0.08);
+  border-color: rgba(15, 61, 108, 0.15);
+  transform: scale(1.05);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.navbar-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  padding: 8px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.navbar-icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transform: scale(1.05);
+}
+
+/* Nav Links Dropdown Overlay */
+.navbar-overlay-menu {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgba(250, 249, 246, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-overlay-menu.open {
+  max-height: 480px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 4rem;
+}
+
+.overlay-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.overlay-links li {
+  width: 100%;
+  transform: translateY(15px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.navbar-overlay-menu.open .overlay-links li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Stagger transition delay for links */
+.navbar-overlay-menu.open .overlay-links li:nth-child(1) { transition-delay: 0.1s; }
+.navbar-overlay-menu.open .overlay-links li:nth-child(2) { transition-delay: 0.15s; }
+.navbar-overlay-menu.open .overlay-links li:nth-child(3) { transition-delay: 0.2s; }
+.navbar-overlay-menu.open .overlay-links li:nth-child(4) { transition-delay: 0.25s; }
+.navbar-overlay-menu.open .overlay-links li:nth-child(5) { transition-delay: 0.3s; }
+.navbar-overlay-menu.open .overlay-links li:nth-child(6) { transition-delay: 0.35s; }
+
+.overlay-links a {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  transition: var(--transition);
+  padding: 4px 0;
+}
+
+.link-num {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+  opacity: 0.6;
+}
+
+.overlay-links a:hover {
+  color: var(--accent-blue);
+  transform: translateX(8px);
+}
+
+@media (max-width: 1024px) {
+  .overlay-menu-container {
+    padding: 30px 2rem;
+  }
+  .overlay-links a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 64px;
+  }
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+  .navbar-logo-img {
+    height: 38px;
+  }
+  .navbar-right {
+    gap: 0.5rem;
+  }
+  .navbar-overlay-menu {
+    top: 64px;
+  }
+  .overlay-menu-container {
+    padding: 30px 1.5rem;
+  }
+}
