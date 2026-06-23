@@ -364,7 +364,7 @@ export default function Home() {
 
             <div className="project-card">
               <div className="project-image-wrapper">
-                <img src={greenHavenImg} alt="The Green Haven Project" />
+                <img src='https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGhvbWV8ZW58MHx8MHx8fDA%3D' alt="The Green Haven Project" />
                 <button className="project-arrow-btn black-btn" aria-label="View project">
                   <ArrowUpRight size={24} />
                 </button>
